@@ -1,0 +1,98 @@
+# open terminal
+alt - return : open -n /Applications/iTerm.app
+
+# Reload yabai
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# focus window
+alt - d : yabai -m window --focus west
+alt - h : yabai -m window --focus south
+alt - t : yabai -m window --focus north
+alt - n : yabai -m window --focus east
+
+# swap window in current workspace
+alt + shift - d : yabai -m window --swap west  || $(yabai -m window --display west;  yabai -m display --focus west)
+alt + shift - h : yabai -m window --swap south || $(yabai -m window --display south; yabai -m display --focus south)
+alt + shift - t : yabai -m window --swap north || $(yabai -m window --display north; yabai -m display --focus north)
+alt + shift - n : yabai -m window --swap east  || $(yabai -m window --display east;  yabai -m display --focus east)
+
+# set insertion point in focused container
+alt + ctrl - d : yabai -m window --insert west
+alt + ctrl - h : yabai -m window --insert south
+alt + ctrl - t : yabai -m window --insert north
+alt + ctrl - n : yabai -m window --insert east
+
+# change space
+alt - p : yabai -m space --focus personal
+alt - c : yabai -m space --focus chat
+alt - b : yabai -m space --focus browser
+alt - v : yabai -m space --focus code
+
+shift + alt - p : yabai -m window --space personal
+shift + alt - c : yabai -m window --space chat
+shift + alt - b : yabai -m window --space browser
+shift + alt - v : yabai -m window --space code
+
+alt + ctrl - tab : yabai -m space --focus next || yabai -m space --focus first
+alt + ctrl + shift - tab : yabai -m space --focus prev || yabai -m space --focus last
+
+# go back to previous workspace (kind of like back_and_forth in i3)
+alt - d : yabai -m space --focus recent
+
+# move focused window to previous workspace
+alt + shift - b : yabai -m window --space recent; \
+                  yabai -m space --focus recent
+
+# rotate tree
+alt - r : yabai -m space --rotate 90
+
+# mirror tree y-axis
+alt - y : yabai -m space --mirror y-axis
+
+# mirror tree x-axis
+alt - x : yabai -m space --mirror x-axis
+
+# balance size of windows
+alt + shift - 0 : yabai -m space --balance
+
+# change layout of desktop
+#alt - e : yabai -m space --layout bsp
+#alt - l : yabai -m space --layout float
+# alt - s : yabai -m space --layout stack
+
+# toggle sticky
+alt - s : yabai -m window --toggle sticky;\
+          yabai -m window --toggle topmost
+
+# toggle sticky
+alt + ctrl - p : yabai -m window --toggle sticky;\
+                 yabai -m window --toggle topmost;\
+                 yabai -m window --toggle pip
+
+alt + ctrl - x : yabai -m window --toggle sticky;\
+                 yabai -m window --toggle topmost;\
+                 yabai -m window --grid 5:5:4:0:1:1 #--resize abs:647:439
+
+# float / unfloat window and center on screen
+alt + ctrl - c : yabai -m window --toggle float;\
+                 yabai -m window --toggle topmost;\
+                 yabai -m window --grid 4:4:1:1:2:2
+
+# cycle through stack windows
+# alt - p : yabai -m window --focus stack.next || yabai -m window --focus south
+# alt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+
+# toggle window split type
+alt - e : yabai -m window --toggle split
+
+# close focused window
+alt - w : yabai -m window --close
+
+# enter fullscreen mode for the focused container
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+# toggle window parent zoom
+alt + ctrl - f : yabai -m window --toggle zoom-parent
+
+# toggle window native fullscreen
+alt + shift - f : yabai -m window --toggle native-fullscreen

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+alias c="clear"
+alias myip="curl http://ipecho.net/plain; echo"
+
+alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias grep='rg'
+alias find='fd'
+
+alias tt='python3 ~/dotfiles/tmux-session.py'
