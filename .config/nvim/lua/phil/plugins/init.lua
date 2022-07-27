@@ -45,6 +45,15 @@ return packer.startup {
       config = function() require 'phil.plugins.gitsigns' end
     }
 
+    use {
+      'ldelossa/gh.nvim',
+      requires = {{'ldelossa/litee.nvim'}},
+      config = function()
+        require('litee.lib').setup()
+        require('litee.gh').setup({})
+      end
+    }
+
     -- Telescope
     use {
       'nvim-telescope/telescope.nvim',
