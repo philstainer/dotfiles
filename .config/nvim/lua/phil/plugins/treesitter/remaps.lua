@@ -79,8 +79,11 @@ M.logger = function()
   local startIndex = start + 1
   local endIndex = start + 1
 
+  local filename = vim.fn.expand('%:t')
+
   vim.api.nvim_buf_set_lines(bufnr, startIndex, endIndex, false, {
-    string.format("  console.log(`%s: ${%s}`)", items,
+    string.format("console.log('🚀 ~ file: %s ~ line %s ~ %s: ', %s)",
+                  filename, startIndex, items,
                   vim.treesitter.query.get_node_text(node, bufnr))
   })
 

@@ -65,7 +65,8 @@ local options = {
   cursorcolumn = false,
   foldlevelstart = 99, -- start file with all folds opened
   list = true,
-  listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<'
+  listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<',
+  spellsuggest = 'best,9'
 }
 
 vim.opt.shortmess:append "c"

@@ -1,4 +1,5 @@
 local luasnip = require "luasnip"
+local select_choice = require "luasnip.extras.select_choice"
 
 -- <c-k> is my expansion key
 -- this will expand the current item or jump to the next item within the snippet.
@@ -15,7 +16,8 @@ end, {silent = true})
 -- <c-l> is selecting within a list of options.
 -- This is useful for choice nodes (introduced in the forthcoming episode 2)
 vim.keymap.set("i", "<c-l>", function()
-  if luasnip.choice_active() then luasnip.change_choice(1) end
+  -- if luasnip.choice_active() then luasnip.change_choice(1) end
+  if select_choice then select_choice() end
 end)
 
 -- shorcut to source my luasnips file again, which will reload my snippets
