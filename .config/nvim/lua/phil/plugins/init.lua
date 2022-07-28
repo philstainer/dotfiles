@@ -33,11 +33,13 @@ return packer.startup {
     }
 
     -- Git
-    -- use {
-    --   'tpope/vim-fugitive',
-    --   config = function() require 'phil.plugins.fugitive' end
-    -- }
     use {"TimUntersberger/neogit"}
+
+    -- Github integration
+    if vim.fn.executable "gh" == 1 then use "pwntester/octo.nvim" end
+    use "ruifm/gitlinker.nvim"
+
+    use "rhysd/committia.vim"
     use "sindrets/diffview.nvim"
 
     use {"rhysd/git-messenger.vim"}
