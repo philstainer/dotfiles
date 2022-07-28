@@ -33,25 +33,18 @@ return packer.startup {
     }
 
     -- Git
-    use {
-      'tpope/vim-fugitive',
-      config = function() require 'phil.plugins.fugitive' end
-    }
+    -- use {
+    --   'tpope/vim-fugitive',
+    --   config = function() require 'phil.plugins.fugitive' end
+    -- }
+    use {"TimUntersberger/neogit"}
+    use "sindrets/diffview.nvim"
 
     use {"rhysd/git-messenger.vim"}
 
     use {
       'lewis6991/gitsigns.nvim',
       config = function() require 'phil.plugins.gitsigns' end
-    }
-
-    use {
-      'ldelossa/gh.nvim',
-      requires = {{'ldelossa/litee.nvim'}},
-      config = function()
-        require('litee.lib').setup()
-        require('litee.gh').setup({})
-      end
     }
 
     -- Telescope
@@ -63,7 +56,8 @@ return packer.startup {
         'nvim-telescope/telescope-github.nvim',
         "nvim-telescope/telescope-ui-select.nvim",
         "nvim-telescope/telescope-hop.nvim",
-        'nvim-telescope/telescope-symbols.nvim'
+        'nvim-telescope/telescope-symbols.nvim',
+        'ThePrimeagen/git-worktree.nvim'
       },
       config = function() require 'phil.plugins.telescope' end,
       after = {'nvim-mapper', 'project.nvim', 'plenary.nvim'}
