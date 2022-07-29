@@ -59,6 +59,8 @@ yabai -m rule --add app=Brave space=browser
 
 yabai -m rule --add app=iTerm2 space=code
 yabai -m rule --add app=Code space=code
+yabai -m rule --add app='^tmux$' space=code
+yabai -m rule --add title='^tmux$' space=code
 
 # Window rules
 yabai -m rule --add app='^System Information$' manage=off

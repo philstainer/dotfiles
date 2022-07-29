@@ -20,7 +20,7 @@ M.on_attach = function(client, bufnr)
 
   require('illuminate').on_attach(client)
 
-  local ignored = {'tailwindcss'}
+  local ignored = {'tailwindcss', 'bashls'}
   if not functions.has_value(ignored, client.name) then
     require('nvim-navic').attach(client, bufnr)
   end

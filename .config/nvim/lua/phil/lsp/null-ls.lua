@@ -33,7 +33,9 @@ null_ls.setup {
     code_actions.eslint,
     diagnostics.cspell.with({disabled_filetypes = {'lua', 'NvimTree'}}),
     formatting.lua_format.with({
-      extra_args = {'--tab-width', 2, '--indent-width', 2}
+      extra_args = {
+        '--tab-width', 2, '--indent-width', 2, '--double-quote-to-single-quote'
+      }
     }), formatting.beautysh
   }
 }
