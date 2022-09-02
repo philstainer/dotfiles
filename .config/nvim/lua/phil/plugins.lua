@@ -47,6 +47,7 @@ return packer.startup {
     use 'nvim-telescope/telescope-hop.nvim'
     use 'nvim-telescope/telescope-symbols.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
+    -- use 'danielpieper/telescope-tmuxinator.nvim'
 
     -- nvim-mapper replacement?? folke/which-key.nvim
     use 'lazytanuki/nvim-mapper' -- Key mapper for easy viewing
@@ -95,6 +96,10 @@ return packer.startup {
     use 'windwp/nvim-ts-autotag' -- Auto close tags
     use 'haringsrob/nvim_context_vt' -- shows treesitter context in end of parenthesis
     use 'nvim-treesitter/nvim-treesitter-textobjects'
+    use {
+      'romgrk/nvim-treesitter-context',
+      config = function() require('phil.plugins.nvim-treesitter-context') end
+    }
 
     -- Extra
     use 'numToStr/Comment.nvim' -- Comments
@@ -106,11 +111,7 @@ return packer.startup {
 
     use 'numtostr/BufOnly.nvim' -- Easy delete buffers
 
-    use 'karb94/neoscroll.nvim' -- Smooth scrolling
-
     use 'kevinhwang91/nvim-bqf' -- Better quick fix list
-
-    use 'justinmk/vim-sneak' -- Easy movement (not sure about this one)
 
     -- Text Maniuplation
     use 'godlygeek/tabular' -- Quickly align text by pattern
@@ -123,7 +124,6 @@ return packer.startup {
     use 'folke/todo-comments.nvim' -- Todo Comments
 
     use 'MunifTanjim/nui.nvim'
-    use 'vuki656/package-info.nvim' -- Package info
 
     -- use {
     --   'darrikonn/vim-gofmt',

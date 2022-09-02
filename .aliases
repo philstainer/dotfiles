@@ -14,3 +14,6 @@ alias grep='rg'
 alias find='fd'
 
 alias tt='python3 ~/dotfiles/tmux-session.py'
+
+alias v='nvim'
+alias tx='tmuxinator'

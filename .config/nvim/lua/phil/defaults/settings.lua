@@ -17,11 +17,11 @@ local options = {
   errorbells = false,
   hidden = true,
   backup = false, -- creates a backup file
-  clipboard = "unnamedplus", -- allows neovim to access the system clipboard
+  clipboard = 'unnamedplus', -- allows neovim to access the system clipboard
   cmdheight = 1, -- more space in the neovim command line for displaying messages
-  completeopt = {"menuone", "noselect"}, -- mostly just for cmp
+  completeopt = {'menuone', 'noselect'}, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
-  fileencoding = "utf-8", -- the encoding written to a file
+  fileencoding = 'utf-8', -- the encoding written to a file
   hlsearch = false, -- highlight all matches on previous search pattern
   incsearch = true,
   ignorecase = false, -- ignore case in search patterns
@@ -49,7 +49,7 @@ local options = {
   softtabstop = 2,
   cursorline = false, -- highlight the current line
   relativenumber = true, -- set relative numbered lines
-  signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
+  signcolumn = 'yes', -- always show the sign column, otherwise it would shift the text each time
   wrap = true, -- display lines as one long line
   scrolloff = 8, -- is one of my fav
   colorcolumn = '0', -- '80'
@@ -69,6 +69,6 @@ local options = {
   spellsuggest = 'best,9'
 }
 
-vim.opt.shortmess:append "c"
+vim.opt.shortmess:append 'c'
 
 for k, v in pairs(options) do vim.opt[k] = v end
