@@ -15,6 +15,7 @@ HOME_DIR="$HOME"
 ARRAY=(
     .config/kitty # Kitty config
     .config/nvim # Kitty config
+    .local/bin    # Helpers config
     .gitconfig    # Git config
     .zshrc        # Zsh config
     .p10k.zsh

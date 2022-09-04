@@ -67,12 +67,13 @@ brew install python3
 python -m ensurepip --upgrade
 brew install ripgrep
 brew install fd
+brew install --cask shottr
 
 # Apps
 brew install --cask 1password
-brew install --cask bartender
 brew install --cask cheatsheet
-brew install --cask alfred
+brew install --cask raycast
+# brew install --cask alfred
 brew install --cask stats
 brew install --cask iina
 brew install --cask imageoptim
@@ -137,6 +138,10 @@ echo_warn "Installing Mac Apps..."
 brew install mas
 
 mas install 497799835  # Xcode
+mas install 1607635845 # Velja
+mas install 595191960  # CopyClip
+mas install 1452453066 # Hidden bar
+mas install 985367838  # Outlook
 
 # Clean up
 brew cleanup
