@@ -21,7 +21,7 @@ local M = {}
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities =
-    vim.tbl_deep_extend("keep", capabilities, lsp_status.capabilities)
+    vim.tbl_deep_extend('keep', capabilities, lsp_status.capabilities)
 capabilities.textDocument.codeLens = {dynamicRegistration = false}
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
@@ -42,19 +42,20 @@ M.servers = {
   dockerls = {},
   gopls = require('phil.lsp.servers.gopls')(),
   tailwindcss = require('phil.lsp.servers.tailwindcss')(),
-  prismals = {}
+  prismals = {},
+  astro = {}
   -- ccls = require('phil.lsp.servers.ccls')()
   -- graphql = {},
 }
 
 M.setup = function()
-  require("nvim-lsp-installer").setup {
+  require('nvim-lsp-installer').setup {
     automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
       icons = {
-        server_installed = "✓",
-        server_pending = "➜",
-        server_uninstalled = "✗"
+        server_installed = '✓',
+        server_pending = '➜',
+        server_uninstalled = '✗'
       }
     }
   }

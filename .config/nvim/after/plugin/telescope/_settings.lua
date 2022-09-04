@@ -1,7 +1,19 @@
 local ok, telescope = pcall(require, 'telescope')
 if not ok then return end
 
+local telescopeConfig = require('telescope.config')
 local actions = require('telescope.actions')
+local actionLayout = require('telescope.actions.layout')
+
+-- Clone the default Telescope configuration
+local vimgrep_arguments = {unpack(telescopeConfig.values.vimgrep_arguments)}
+
+-- I want to search in hidden/dot files.
+table.insert(vimgrep_arguments, '--hidden')
+
+-- I don't want to search in the `.git` directory.
+table.insert(vimgrep_arguments, '--glob')
+table.insert(vimgrep_arguments, '!.git/*')
 
 telescope.setup {
   defaults = {
@@ -9,7 +21,8 @@ telescope.setup {
       i = {
         ['<C-x>'] = false,
         ['<C-q>'] = actions.send_to_qflist,
-        ['<esc>'] = actions.close,
+        ['<C-c>'] = actions.close,
+        -- ['<esc>'] = actions.close,
         ['?'] = actions.which_key,
         ['<C-space>'] = function(prompt_bufnr)
           local opts = {
@@ -18,9 +31,10 @@ telescope.setup {
           }
           require('telescope').extensions.hop._hop_loop(prompt_bufnr, opts)
         end,
-        ['<C-w>'] = function() vim.api.nvim_input '<c-s-w>' end
+        ['<C-w>'] = function() vim.api.nvim_input '<c-s-w>' end,
+        ['<C-p>'] = actionLayout.toggle_preview
       },
-      n = {}
+      n = {['<C-c>'] = actions.close, ['<C-p>'] = actionLayout.toggle_preview}
     },
     file_sorter = require('telescope.sorters').get_fzy_sorter,
     sorting_strategy = 'ascending',
@@ -38,7 +52,8 @@ telescope.setup {
 
     file_previewer = require('telescope.previewers').vim_buffer_cat.new,
     grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
-    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new
+    qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
+    vimgrep_arguments = vimgrep_arguments -- `hidden = true` is not supported in text grep commands.
   },
   pickers = {
     -- Your special builtin config goes in here

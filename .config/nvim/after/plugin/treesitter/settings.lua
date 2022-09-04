@@ -6,7 +6,7 @@ ts_configs.setup {
   autotag = {enable = true},
   ensure_installed = {
     'typescript', 'html', 'tsx', 'lua', 'json', 'rust', 'css', 'javascript',
-    'c_sharp', 'norg', 'graphql', 'prisma', 'bash'
+    'c_sharp', 'norg', 'graphql', 'prisma', 'bash', 'astro'
   },
 
   highlight = {enable = true},

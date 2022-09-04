@@ -37,3 +37,11 @@ vim.api.nvim_create_autocmd('BufWritePost', {
     print 'Restarting eslint_d...'
   end
 })
+
+vim.api.nvim_create_autocmd({'BufRead', 'BufEnter'}, {
+  group = vim.api.nvim_create_augroup('astro-detect', {clear = true}),
+  pattern = '*.astro',
+  callback = function() vim.bo.filetype = 'astro' end
+})
+
+-- autocmd BufRead,BufEnter *.astro set filetype=astro)

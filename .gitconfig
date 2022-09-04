@@ -53,13 +53,13 @@
   # https://help.github.com/articles/signing-commits-using-gpg
 	gpgsign = true
 
-[diff]
-	# Detect copies as well as renames.
-	renames = copies
+; [diff]
+; 	# Detect copies as well as renames.
+; 	renames = copies
 
-[diff "bin"]
-	# Use `hexdump` to diff binary files.
-	textconv = hexdump -v -C
+; [diff "bin"]
+; 	# Use `hexdump` to diff binary files.
+; 	textconv = hexdump -v -C
 
 [help]
 	# Automatically correct and execute mistyped commands.
@@ -74,23 +74,29 @@
 	default = simple
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+	default = current
+	autoSetupRemote = true
 
 # URL shorthands
-[url "git@github.com:"]
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-	insteadOf = "github:"
-
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-	insteadOf = "gist:"
+; [url "git@github.com:"]
+; 	insteadOf = "gh:"
+; 	pushInsteadOf = "github:"
+; 	pushInsteadOf = "git://github.com/"
+;
+; [url "git://github.com/"]
+; 	insteadOf = "github:"
+;
+; [url "git@gist.github.com:"]
+; 	insteadOf = "gst:"
+; 	pushInsteadOf = "gist:"
+; 	pushInsteadOf = "git://gist.github.com/"
+;
+; [url "git://gist.github.com/"]
+; 	insteadOf = "gist:"
 
 [init]
 	defaultBranch = main
+[user]
+	name = Phil Stainer
+	email = philstainer.dev@gmail.com
+	signingkey = C4B8EB108A40C36F
