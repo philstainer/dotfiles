@@ -5,6 +5,7 @@
 [branch]
 	# Show most recently changed branches first.
 	sort = -committerdate
+	autosetupmerge = always
 
 [core]
 	# Use custom `.gitignore` and `.gitattributes`.
@@ -51,7 +52,7 @@
 
 [commit]
   # https://help.github.com/articles/signing-commits-using-gpg
-	gpgsign = true
+	template = /Users/philstainer/.stCommitMsg
 
 ; [diff]
 ; 	# Detect copies as well as renames.
@@ -71,7 +72,7 @@
 
 [push]
 	# https://git-scm.com/docs/git-config#git-config-pushdefault
-	default = simple
+	default = current
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 	default = current
@@ -99,4 +100,21 @@
 [user]
 	name = Phil Stainer
 	email = philstainer.dev@gmail.com
-	signingkey = C4B8EB108A40C36F
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[rerere]
+	enabled = true
+[alias]
+	push-mr = push -o merge_request.create
+  clone-worktree = "!sh $HOME/git-clone-bare-for-worktrees.sh"
+[user]
+	name = Phil Stainer
+	email = philstainer@hollandandbarrett.com
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

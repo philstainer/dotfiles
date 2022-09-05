@@ -1,6 +1,13 @@
-local present, packer = pcall(require, 'phil.packer_init')
+local fn = vim.fn
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
-if not present then return false end
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path
+  })
+  vim.cmd [[packadd packer.nvim]]
+end
 
 local presentImpatient, impatient = pcall(require, 'impatient')
 
@@ -13,7 +20,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   callback = function() vim.cmd('source <afile> | PackerCompile') end
 })
 
-return packer.startup {
+return require('packer').startup {
   function(use)
     -- Lua caching
     use 'lewis6991/impatient.nvim'
@@ -54,14 +61,20 @@ return packer.startup {
     use 'ahmedkhalf/project.nvim' -- Telescope projects
 
     -- Complete
-    use {'hrsh7th/nvim-cmp', event = 'InsertEnter'}
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'saadparwaiz1/cmp_luasnip'
-    use 'tamago324/cmp-zsh'
-    use {'tzachar/cmp-tabnine', run = './install.sh'} -- AI code helper
+    use {
+      'hrsh7th/nvim-cmp',
+      event = 'InsertEnter',
+      requires = {
+        {'hrsh7th/cmp-buffer', after = 'nvim-cmp'},
+        {'hrsh7th/cmp-path', after = 'nvim-cmp'},
+        {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'},
+        {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'},
+        {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'},
+        {'tamago324/cmp-zsh', after = 'nvim-cmp'},
+        {'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-cmp'} -- AI code helper
+
+      }
+    }
 
     use {
       'windwp/nvim-autopairs', -- Auto close ({'<" etc..
@@ -144,6 +157,20 @@ return packer.startup {
 
     use 'nvim-lualine/lualine.nvim' -- Status line
 
+    if packer_bootstrap then require('packer').sync() end
   end,
-  config = {luarocks = {python_cmd = 'python3'}, display = {}}
+  config = {
+    luarocks = {python_cmd = 'python3'},
+    display = {
+      open_fn = function()
+        return require('packer.util').float {border = 'single'}
+      end,
+      prompt_border = 'single'
+    },
+    git = {
+      clone_timeout = 600 -- Timeout, in seconds, for git clones
+    },
+    auto_clean = true,
+    compile_on_sync = true
+  }
 }

@@ -58,13 +58,16 @@ echo_warn "Installing applications..."
 # Node
 mkdir ~/.nvm
 brew install nvm
+brew install pnpm
 nvim install node
 npm install -g eslint_d @fsouza/prettierd
 
 # Tools
 brew install fzf
-brew install python3
-python -m ensurepip --upgrade
+
+# https://opensource.com/article/19/5/python-3-default-mac
+brew install pyenv
+
 brew install ripgrep
 brew install fd
 brew install --cask shottr
@@ -120,6 +123,8 @@ echo_warn "Installing Terminal..."
 brew install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone --depth=1 https://github.com/baliestri/pnpm.plugin.zsh ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/pnpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 brew install tmux
 brew install tmuxinator
@@ -137,11 +142,15 @@ nvim +silent +PackerSync +qall
 echo_warn "Installing Mac Apps..."
 brew install mas
 
+<<<<<<< Updated upstream
 mas install 497799835  # Xcode
 mas install 1607635845 # Velja
 mas install 595191960  # CopyClip
 mas install 1452453066 # Hidden bar
 mas install 985367838  # Outlook
+=======
+# mas install 497799835  # Xcode
+>>>>>>> Stashed changes
 
 # Clean up
 brew cleanup

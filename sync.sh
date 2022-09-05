@@ -21,11 +21,12 @@ ARRAY=(
     .p10k.zsh
     .aliases
     .exports
-    .extra
     .tmux.conf    # Tmux config
     .yabairc      # Yabai config for window managagment
     .skhdrc       # Skhdrc config for keyboard navigation
     .spacebarrc   # Status bar for macos
+    git-clone-bare-for-worktrees.sh
+    .extra
 )
 
 function sync() {

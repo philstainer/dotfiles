@@ -16,7 +16,7 @@ unset file;
 # Set Bash as the default shell using: chsh -s $(which bash)
 
 plugins=(git docker docker-compose pip)
-plugins+=(tmux tmuxinator yarn npm)
+plugins+=(tmux tmuxinator yarn npm pnpm)
 plugins+=(z zsh-autosuggestions history)
 
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions

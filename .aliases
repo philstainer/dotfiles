@@ -17,3 +17,4 @@ alias tt='python3 ~/dotfiles/tmux-session.py'
 
 alias v='nvim'
 alias tx='tmuxinator'
+alias datetime='date "+%Y-%m-%d %H:%M:%S"'
