@@ -67,8 +67,7 @@ return require('packer').startup {
       requires = {
         {'hrsh7th/cmp-buffer', after = 'nvim-cmp'},
         {'hrsh7th/cmp-path', after = 'nvim-cmp'},
-        {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'},
-        {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'},
+        {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}, {'hrsh7th/cmp-nvim-lsp'},
         {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'},
         {'tamago324/cmp-zsh', after = 'nvim-cmp'},
         {'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-cmp'} -- AI code helper
@@ -76,12 +75,6 @@ return require('packer').startup {
       }
     }
 
-    use {
-      'windwp/nvim-autopairs', -- Auto close ({'<" etc..
-      config = function() require('nvim-autopairs').setup {} end
-    }
-
-    --
     -- LSP Autocomplete & Linters
     use 'neovim/nvim-lspconfig'
     use 'nvim-lua/lsp-status.nvim'
@@ -106,7 +99,6 @@ return require('packer').startup {
       run = function() vim.cmd [[TSUpdate]] end
     }
     use 'nvim-treesitter/playground' -- Treesitter playground / debugger
-    use 'windwp/nvim-ts-autotag' -- Auto close tags
     use 'haringsrob/nvim_context_vt' -- shows treesitter context in end of parenthesis
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use {
@@ -133,16 +125,13 @@ return require('packer').startup {
     use 'tpope/vim-repeat' -- Repeat actions
     use 'bkad/CamelCaseMotion' -- Allows to move by camelCase with w e
     use 'lukas-reineke/indent-blankline.nvim' -- Show indent lines
-    use 'andymass/vim-matchup' -- Enchances %
+    use {
+      'andymass/vim-matchup',
+      config = function() require('phil.plugins.vim-matchup') end
+    } -- Enchances %
     use 'folke/todo-comments.nvim' -- Todo Comments
 
     use 'MunifTanjim/nui.nvim'
-
-    -- use {
-    --   'darrikonn/vim-gofmt',
-    --   run = function() vim.cmd [[GoUpdateBinaries]] end
-    --   -- do = ':GoUpdateBinaries'
-    -- }
 
     -- Theming
     -- use 'gruvbox-community/gruvbox'

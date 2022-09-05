@@ -142,15 +142,11 @@ nvim +silent +PackerSync +qall
 echo_warn "Installing Mac Apps..."
 brew install mas
 
-<<<<<<< Updated upstream
-mas install 497799835  # Xcode
+# mas install 497799835  # Xcode
 mas install 1607635845 # Velja
 mas install 595191960  # CopyClip
 mas install 1452453066 # Hidden bar
 mas install 985367838  # Outlook
-=======
-# mas install 497799835  # Xcode
->>>>>>> Stashed changes
 
 # Clean up
 brew cleanup

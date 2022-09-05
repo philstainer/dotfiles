@@ -3,7 +3,6 @@ if not ok then return end
 
 ts_configs.setup {
 
-  autotag = {enable = true},
   ensure_installed = {
     'typescript', 'html', 'tsx', 'lua', 'json', 'rust', 'css', 'javascript',
     'c_sharp', 'norg', 'graphql', 'prisma', 'bash', 'astro'
