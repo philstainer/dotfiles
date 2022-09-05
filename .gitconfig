@@ -1,37 +1,21 @@
+[include]
+  path = ~/.gitconfig.local
+
 [apply]
-	# Detect whitespace errors when applying a patch.
 	whitespace = fix
 
 [branch]
-	# Show most recently changed branches first.
 	sort = -committerdate
 	autosetupmerge = always
 
 [core]
-	# Use custom `.gitignore` and `.gitattributes`.
 	excludesfile = ~/.gitignore
-	; attributesfile = ~/.gitattributes
-
-	# Treat spaces before tabs and all kinds of trailing whitespace as an error.
-	# [default] trailing-space: looks for spaces at the end of a line
-	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
 	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
-
-	# Make `git rebase` safer on macOS.
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
-
-	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
-	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
-
-	# Speed up commands involving untracked files such as `git status`.
-	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
 
 [color]
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
 	ui = auto
 
 [color "branch"]
@@ -50,56 +34,20 @@
 	changed = green
 	untracked = cyan
 
-[commit]
-  # https://help.github.com/articles/signing-commits-using-gpg
-	template = /Users/philstainer/.stCommitMsg
-
-; [diff]
-; 	# Detect copies as well as renames.
-; 	renames = copies
-
-; [diff "bin"]
-; 	# Use `hexdump` to diff binary files.
-; 	textconv = hexdump -v -C
-
 [help]
-	# Automatically correct and execute mistyped commands.
 	autocorrect = 1
 
 [merge]
-	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
 [push]
-	# https://git-scm.com/docs/git-config#git-config-pushdefault
 	default = current
-	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 	default = current
 	autoSetupRemote = true
 
-# URL shorthands
-; [url "git@github.com:"]
-; 	insteadOf = "gh:"
-; 	pushInsteadOf = "github:"
-; 	pushInsteadOf = "git://github.com/"
-;
-; [url "git://github.com/"]
-; 	insteadOf = "github:"
-;
-; [url "git@gist.github.com:"]
-; 	insteadOf = "gst:"
-; 	pushInsteadOf = "gist:"
-; 	pushInsteadOf = "git://gist.github.com/"
-;
-; [url "git://gist.github.com/"]
-; 	insteadOf = "gist:"
-
 [init]
 	defaultBranch = main
-[user]
-	name = Phil Stainer
-	email = philstainer.dev@gmail.com
 [pull]
 	rebase = true
 [rebase]
@@ -109,12 +57,3 @@
 [alias]
 	push-mr = push -o merge_request.create
   clone-worktree = "!sh $HOME/git-clone-bare-for-worktrees.sh"
-[user]
-	name = Phil Stainer
-	email = philstainer@hollandandbarrett.com
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
