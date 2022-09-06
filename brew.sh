@@ -56,10 +56,10 @@ brew install --cask font-jetbrains-mono-nerd-font
 echo_warn "Installing applications..."
 
 # Node
-mkdir ~/.nvm
-brew install nvm
+brew tap nodenv/nodenv
+brew install nodenv nodenv-nvmrc nodenv-package-rehash nodenv-package-json-engine nodenv-aliases
+
 brew install pnpm
-nvim install node
 npm install -g eslint_d @fsouza/prettierd
 
 # Tools
@@ -67,6 +67,8 @@ brew install fzf
 
 # https://opensource.com/article/19/5/python-3-default-mac
 brew install pyenv
+exec "$SHELL"
+pyenv install 2.7.18
 
 brew install ripgrep
 brew install fd
