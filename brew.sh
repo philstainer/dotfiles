@@ -13,6 +13,7 @@ brew upgrade
 function echo_ok { echo -e '\033[1;32m'"$1"'\033[0m'; }
 function echo_warn { echo -e '\033[1;33m'"$1"'\033[0m'; }
 function echo_error  { echo -e '\033[1;31mERROR: '"$1"'\033[0m'; }
+function refresh_path  { exec "$SHELL" }
 
 echo_ok "Install starting. You may be asked for your password (for sudo)."
 
@@ -67,8 +68,7 @@ brew install fzf
 
 # https://opensource.com/article/19/5/python-3-default-mac
 brew install pyenv
-exec "$SHELL"
-pyenv install 2.7.18
+brew install openssl readline sqlite3 xz zlib tcl-tk # pyenv dependencies
 
 brew install ripgrep
 brew install fd
@@ -144,7 +144,7 @@ nvim +silent +PackerSync +qall
 echo_warn "Installing Mac Apps..."
 brew install mas
 
-# mas install 497799835  # Xcode
+mas install 497799835  # Xcode
 mas install 1607635845 # Velja
 mas install 595191960  # CopyClip
 mas install 1452453066 # Hidden bar
@@ -152,6 +152,15 @@ mas install 985367838  # Outlook
 
 # Clean up
 brew cleanup
+
+refresh_path
+
+pyenv install 2.7:latest
+pyenv install 3:latest
+
+nodenv install --list | grep -Eo '^[0-9].*' | tail -1 | xargs nodenv install
+
+refresh_path
 
 echo
 echo_ok "Done."
