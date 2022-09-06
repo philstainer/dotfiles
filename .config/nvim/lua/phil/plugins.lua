@@ -33,10 +33,14 @@ return require('packer').startup {
     use 'kyazdani42/nvim-tree.lua' -- File explorer
     use 'j-hui/fidget.nvim' -- Lsp detail status
 
-    use 'TimUntersberger/neogit' -- Git
+    -- Git
+    use {
+      'TimUntersberger/neogit',
+      requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'}
+    }
+
     use 'ruifm/gitlinker.nvim' -- Git browser
     use 'rhysd/committia.vim' -- Git commit
-    use 'sindrets/diffview.nvim' -- Git diff
     use 'rhysd/git-messenger.vim' -- Git commit viewer
     use 'lewis6991/gitsigns.nvim' -- Git signs e.g new, modified
 
