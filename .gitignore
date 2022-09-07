@@ -16,3 +16,4 @@ Thumbs.db
 .config/nvim/nvim/session
 tmux-client*
 .extra
+packer_compiled.lua
