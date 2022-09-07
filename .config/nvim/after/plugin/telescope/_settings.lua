@@ -41,7 +41,7 @@ telescope.setup {
     file_ignore_patterns = {
       '.backup', '.swap', '.langservers', '.session', '.undo', '*.git', '.git',
       'node_modules', 'vendor', '.cache', '.vscode-server', '.Desktop',
-      '.Documents', 'classes', 'yarn.lock', 'package-lock.json'
+      '.Documents', 'classes', 'yarn.lock', 'package-lock.json', 'dist', 'build'
     },
     prompt_prefix = '> ',
     selection_caret = '> ',
@@ -58,7 +58,12 @@ telescope.setup {
   pickers = {
     -- Your special builtin config goes in here
     buffers = {sort_lastused = true, previewer = false, theme = 'dropdown'},
-    find_files = {previewer = false, theme = 'dropdown'},
+    find_files = {
+      previewer = false,
+      theme = 'dropdown',
+      hidden = true,
+      no_ignore = true
+    },
     git_files = {previewer = false, theme = 'dropdown'},
     registers = {theme = 'dropdown'},
     lsp_code_actions = {theme = 'cursor'},
@@ -107,5 +112,7 @@ if vim.fn.executable 'gh' == 1 then telescope.load_extension('gh') end
 telescope.load_extension('ui-select')
 
 telescope.load_extension('hop')
+
+require('git-worktree').setup({base_directory = '../'})
 
 telescope.load_extension('git_worktree')

@@ -14,7 +14,8 @@ end) -- Search for text in files
 
 nnoremap('<leader>pl', function() require'telescope.builtin'.live_grep() end) -- Live find
 
-nnoremap('<leader>pf', function() telescope_utils.project_files() end) -- Find files
+-- nnoremap('<leader>pf', function() telescope_utils.project_files() end) -- Find files
+nnoremap('<C-p>', function() telescope_utils.project_files() end) -- Find files
 
 nnoremap('<leader>cc', function()
   builtin.find_files({
