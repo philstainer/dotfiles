@@ -22,7 +22,7 @@ telescope.setup {
         ['<C-x>'] = false,
         ['<C-q>'] = actions.send_to_qflist,
         ['<C-c>'] = actions.close,
-        -- ['<esc>'] = actions.close,
+        ['<esc>'] = actions.close,
         ['?'] = actions.which_key,
         ['<C-space>'] = function(prompt_bufnr)
           local opts = {
@@ -34,7 +34,7 @@ telescope.setup {
         ['<C-w>'] = function() vim.api.nvim_input '<c-s-w>' end,
         ['<C-p>'] = actionLayout.toggle_preview
       },
-      n = {['<C-c>'] = actions.close, ['<C-p>'] = actionLayout.toggle_preview}
+      n = {}
     },
     file_sorter = require('telescope.sorters').get_fzy_sorter,
     sorting_strategy = 'ascending',

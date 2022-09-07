@@ -44,4 +44,9 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufEnter'}, {
   callback = function() vim.bo.filetype = 'astro' end
 })
 
+vim.api.nvim_create_autocmd({'BufRead', 'BufEnter'}, {
+  group = vim.api.nvim_create_augroup('json-detect', {clear = true}),
+  pattern = '*.json',
+  callback = function() vim.bo.filetype = 'json' end
+})
 -- autocmd BufRead,BufEnter *.astro set filetype=astro)
