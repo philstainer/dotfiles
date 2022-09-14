@@ -1,8 +1,14 @@
+# if you're having troubles finding key codes for a key just type skhd --observe in a terminal and type a key. Pretty cool! Or just check the wiki.
+# HYPER == SHIFT + CMD + ALT + OPTION
+
 # open terminal
-alt - return : open -n /Applications/iTerm.app
+alt - return : open -n /Applications/kitty.app
 
 # Reload yabai
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# Close active application
+hyper - backspace : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
 # focus window
 alt - d : yabai -m window --focus west
@@ -23,10 +29,16 @@ alt + ctrl - t : yabai -m window --insert north
 alt + ctrl - n : yabai -m window --insert east
 
 # change space
-alt - p : yabai -m space --focus personal
-alt - c : yabai -m space --focus chat
-alt - b : yabai -m space --focus browser
-alt - v : yabai -m space --focus code
+# alt - p : yabai -m space --focus personal
+# alt - c : yabai -m space --focus chat
+# alt - b : yabai -m space --focus browser
+# alt - v : yabai -m space --focus code
+
+alt - p : osascript -e 'tell application "System Events" to key code 35 using {option down, shift down, command down, control down}'
+alt - c : osascript -e 'tell application "System Events" to key code 8 using {option down, shift down, command down, control down}'
+alt - b : osascript -e 'tell application "System Events" to key code 11 using {option down, shift down, command down, control down}'
+alt - v : osascript -e 'tell application "System Events" to key code 9 using {option down, shift down, command down, control down}'
+alt - r : osascript -e 'tell application "System Events" to key code 15 using {option down, shift down, command down, control down}'
 
 shift + alt - p : yabai -m window --space personal
 shift + alt - c : yabai -m window --space chat

@@ -3,12 +3,12 @@
 alias c="clear"
 alias myip="curl http://ipecho.net/plain; echo"
 
-alias reload=". ~/.zshrc && echo 'ZSH config reloaded from ~/.zshrc'"
+alias s="source ~/.zshrc"
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias l='exa -lah'
+alias ls=exa
+alias sl=exa
 
 alias grep='rg'
 alias find='fd'
@@ -18,3 +18,26 @@ alias tt='python3 ~/dotfiles/tmux-session.py'
 alias v='nvim'
 alias tx='tmuxinator'
 alias datetime='date "+%Y-%m-%d %H:%M:%S"'
+
+alias jj='pbpaste | jsonpp | pbcopy'
+alias rm=trash
+
+alias gst='git rev-parse --git-dir > /dev/null 2>&1 && git status || exa'
+
+function take {
+    mkdir -p $1
+    cd $1
+}
+
+note() {
+    echo "date: $(date)" >> $HOME/drafts.txt
+    echo "$@" >> $HOME/drafts.txt
+    echo "" >> $HOME/drafts.txt
+}
+
+dclear () {
+    docker ps -a -q | xargs docker kill -f
+    docker ps -a -q | xargs docker rm -f
+    docker images | grep "api\|none" | awk '{print $3}' | xargs docker rmi -f
+    docker volume prune -f
+}

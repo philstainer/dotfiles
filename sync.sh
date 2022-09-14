@@ -13,8 +13,10 @@ fi
 HOME_DIR="$HOME"
 
 ARRAY=(
-    .config/kitty # Kitty config
-    .config/nvim # Kitty config
+    .config/kitty   # Kitty config
+    .config/nvim    # Kitty config
+    .config/yabai   # Yabai config for window managagment
+    .config/skhd    # Skhdrc config for keyboard navigation
     .local/bin    # Helpers config
     .gitconfig    # Git config
     .zshrc        # Zsh config
@@ -22,8 +24,6 @@ ARRAY=(
     .aliases
     .exports
     .tmux.conf    # Tmux config
-    .yabairc      # Yabai config for window managagment
-    .skhdrc       # Skhdrc config for keyboard navigation
     .spacebarrc   # Status bar for macos
     git-clone-bare-for-worktrees.sh
     .extra

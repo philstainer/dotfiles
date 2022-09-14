@@ -43,7 +43,7 @@ M.servers = {
   gopls = require('phil.lsp.servers.gopls')(),
   tailwindcss = require('phil.lsp.servers.tailwindcss')(),
   prismals = {},
-  astro = {}
+  astro = require('phil.lsp.servers.astro')()
   -- ccls = require('phil.lsp.servers.ccls')()
   -- graphql = {},
 }

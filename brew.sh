@@ -44,7 +44,6 @@ brew install go
 brew install luarocks # Needed for lua formatter
 brew install gnupg
 brew install --cask gpg-suite
-brew install jq
 brew install --cask chromedriver
 brew install wget
 
@@ -65,6 +64,9 @@ npm install -g eslint_d @fsouza/prettierd
 
 # Tools
 brew install fzf
+brew install trash
+brew install jsonpp
+brew install exa
 
 # https://opensource.com/article/19/5/python-3-default-mac
 brew install pyenv
@@ -162,6 +164,11 @@ nodenv install --list | grep -Eo '^[0-9].*' | tail -1 | xargs nodenv install
 
 refresh_path
 
+
+# Yabai
+brew install koekeishiya/formulae/yabai
+brew install jq
+brew install koekeishiya/formulae/skhdu
 echo
 echo_ok "Done."
 echo

@@ -12,7 +12,7 @@ local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 null_ls.setup {
   debug = false,
   on_attach = function(client, bufnr)
-    if client.supports_method("textDocument/formatting") then
+    if client.supports_method('textDocument/formatting') then
 
       vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
       vim.api.nvim_create_autocmd('BufWritePre', {
@@ -29,8 +29,10 @@ null_ls.setup {
     end
   end,
   sources = {
-    formatting.eslint_d, formatting.prettierd, diagnostics.eslint_d,
-    code_actions.eslint,
+    formatting.eslint_d.with({filetypes = {'astro'}}),
+    formatting.prettierd.with({filetypes = {'astro', 'javascript'}}),
+    formatting.rustywind.with({filetypes = {'astro'}}),
+    diagnostics.eslint_d.with({filetypes = {'astro'}}), code_actions.eslint,
     diagnostics.cspell.with({disabled_filetypes = {'lua', 'NvimTree'}}),
     formatting.lua_format.with({
       extra_args = {
