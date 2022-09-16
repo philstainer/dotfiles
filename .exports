@@ -45,7 +45,6 @@ export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 # pnpm
 export PNPM_HOME="/Users/phil/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 # Nodenv
 eval "$(nodenv init - --no-rehash)"
