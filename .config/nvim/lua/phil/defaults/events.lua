@@ -50,3 +50,10 @@ vim.api.nvim_create_autocmd({'BufRead', 'BufEnter'}, {
   callback = function() vim.bo.filetype = 'json' end
 })
 -- autocmd BufRead,BufEnter *.astro set filetype=astro)
+
+-- Compile and reload file
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = vim.api.nvim_create_augroup('Packer', {clear = true}),
+  pattern = 'plugins.lua',
+  callback = function() vim.cmd('source <afile> | PackerCompile') end
+})
