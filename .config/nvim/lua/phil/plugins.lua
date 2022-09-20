@@ -24,18 +24,23 @@ return require('packer').startup {
     -- Lua caching
     use 'lewis6991/impatient.nvim'
 
-    use {'wbthomason/packer.nvim', event = 'VimEnter'}
+    use 'wbthomason/packer.nvim'
 
     use 'nvim-lua/plenary.nvim'
 
-    use 'goolord/alpha-nvim' -- Home screen
+    -- Home screen
+    use {
+      'goolord/alpha-nvim',
+      config = function() require('phil.plugins.alpha') end
+    }
     use 'kyazdani42/nvim-tree.lua' -- File explorer
     use 'j-hui/fidget.nvim' -- Lsp detail status
 
     -- Git
     use {
       'TimUntersberger/neogit',
-      requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'}
+      requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
+      config = function() require('phil.plugins.neogit') end
     }
 
     use 'ruifm/gitlinker.nvim' -- Git browser
