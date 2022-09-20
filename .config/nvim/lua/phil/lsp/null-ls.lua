@@ -9,6 +9,11 @@ local code_actions = null_ls.builtins.code_actions
 local nvim_version = vim.version()
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
+local langs = {
+  'astro', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact',
+  'json'
+}
+
 null_ls.setup {
   debug = false,
   on_attach = function(client, bufnr)
@@ -29,10 +34,10 @@ null_ls.setup {
     end
   end,
   sources = {
-    formatting.eslint_d.with({filetypes = {'astro'}}),
-    formatting.prettierd.with({filetypes = {'astro', 'javascript'}}),
-    formatting.rustywind.with({filetypes = {'astro'}}),
-    diagnostics.eslint_d.with({filetypes = {'astro'}}), code_actions.eslint,
+    formatting.eslint_d.with({filetypes = langs}),
+    formatting.prettierd.with({filetypes = langs}),
+    formatting.rustywind.with({filetypes = langs}),
+    diagnostics.eslint_d.with({filetypes = langs}), code_actions.eslint,
     diagnostics.cspell.with({disabled_filetypes = {'lua', 'NvimTree'}}),
     formatting.lua_format.with({
       extra_args = {
