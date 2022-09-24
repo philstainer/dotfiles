@@ -1,16 +1,12 @@
-# Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$PATH";
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 
-# sudo apt-get install zsh
-# sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# Set zsh as the default shell using: chsh -s $(which zsh)
-# Set Bash as the default shell using: chsh -s $(which bash)
+# Source exports if exists
+[[ ! -f ~/.exports ]] || source ~/.exports
 
 plugins=(git docker docker-compose pip)
 plugins+=(tmux tmuxinator yarn npm pnpm)
 plugins+=(z zsh-autosuggestions history)
-
-# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # ZSH_TMUX_AUTOSTART=true
 # ZSH_TMUX_AUTOQUIT=true
@@ -27,13 +23,15 @@ sudo /etc/init.d/dbus start &> /dev/null
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-for file in ~/.{exports,aliases,functions,extra}; do
+for file in ~/.{aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
-unset file;
 
 source /opt/homebrew/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

@@ -132,6 +132,7 @@ git clone --depth=1 https://github.com/baliestri/pnpm.plugin.zsh ${ZSH_CUSTOM:-$
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 brew install tmux
 brew install tmuxinator
+brew install fig
 
 # NVim
 echo_warn "Installing nvim..."
