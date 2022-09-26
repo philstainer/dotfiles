@@ -33,6 +33,8 @@ yabai -m rule --add app=Calendar manage=off
 yabai -m rule --add app=Mail manage=off
 yabai -m rule --add app='1Password$' manage=off
 yabai -m rule --add app='App Store' manage=off
+yabai -m rule --add app='Notion' manage=off
+yabai -m rule --add app='Microsoft Teams' manage=off
 
 # Signals
 sudo yabai --load-sa
