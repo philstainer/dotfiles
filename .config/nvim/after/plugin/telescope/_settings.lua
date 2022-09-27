@@ -62,8 +62,8 @@ telescope.setup {
     find_files = {
       previewer = false,
       theme = 'dropdown',
-      hidden = true,
-      no_ignore = true
+      hidden = true
+      -- no_ignore = true
     },
     git_files = {previewer = false, theme = 'dropdown'},
     registers = {theme = 'dropdown'},
