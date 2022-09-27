@@ -4,7 +4,7 @@ if not ok then return end
 local telescopeConfig = require('telescope.config')
 local actions = require('telescope.actions')
 local actionLayout = require('telescope.actions.layout')
-local fb_actions = require'telescope'.extensions.file_browser.actions
+-- local fb_actions = require'telescope'.extensions.file_browser.actions
 
 -- Clone the default Telescope configuration
 local vimgrep_arguments = {unpack(telescopeConfig.values.vimgrep_arguments)}
