@@ -17,7 +17,7 @@ M.set_default = function(client, bufnr)
                    'lsp', 'lsp_type_definition', 'Go to type definition')
   end
 
-  if client.supports_method("textDocument/declaration") then
+  if client.supports_method('textDocument/declaration') then
     buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', 'lsp',
                    'lsp_go_to_declaration', 'Go to declaration')
   end
@@ -78,7 +78,7 @@ M.set_default = function(client, bufnr)
     buf_set_keymap('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>',
                    'lsp', 'lsp_code_action', 'Code Actions')
     buf_set_keymap('v', '<leader>ca',
-                   "<cmd>'<,'>lua vim.lsp.buf.range_code_action()<cr>", 'lsp',
+                   '<cmd>\'<,\'>lua vim.lsp.buf.range_code_action()<cr>', 'lsp',
                    'lsp_code_action_range', 'Code Action Range')
   end
 

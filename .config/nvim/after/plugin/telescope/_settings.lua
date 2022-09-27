@@ -4,6 +4,7 @@ if not ok then return end
 local telescopeConfig = require('telescope.config')
 local actions = require('telescope.actions')
 local actionLayout = require('telescope.actions.layout')
+local fb_actions = require'telescope'.extensions.file_browser.actions
 
 -- Clone the default Telescope configuration
 local vimgrep_arguments = {unpack(telescopeConfig.values.vimgrep_arguments)}
@@ -98,6 +99,15 @@ telescope.setup {
         -- even more opts
       }
     }
+
+    -- file_browser = {
+    --   hijack_netrw = true,
+    --   grouped = true,
+    --   mappings = {
+    --     ['i'] = {['<C-c>'] = fb_actions.create, ['<C-d>'] = fb_actions.remove},
+    --     ['n'] = {}
+    --   }
+    -- }
   }
 }
 
@@ -116,3 +126,5 @@ telescope.load_extension('hop')
 require('git-worktree').setup({base_directory = '../'})
 
 telescope.load_extension('git_worktree')
+
+-- telescope.load_extension 'file_browser'

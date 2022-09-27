@@ -62,6 +62,7 @@ return require('packer').startup {
     use 'nvim-telescope/telescope-hop.nvim'
     use 'nvim-telescope/telescope-symbols.nvim'
     use 'ThePrimeagen/git-worktree.nvim'
+    -- use 'nvim-telescope/telescope-file-browser.nvim'
     -- use 'danielpieper/telescope-tmuxinator.nvim'
 
     -- nvim-mapper replacement?? folke/which-key.nvim

@@ -40,3 +40,6 @@ nnoremap('<leader>gfc', function() require'telescope.builtin'.git_bcommits() end
 nnoremap('<leader>gw', function() extensions.git_worktree.git_worktrees() end) -- Git work trees
 nnoremap('<leader>gm',
          function() extensions.git_worktree.create_git_worktree() end) -- Git work trees
+
+-- vim.keymap.set('n', '-', function() extensions.file_browser.file_browser() end,
+--                {noremap = true})
