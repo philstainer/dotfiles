@@ -1,11 +1,6 @@
-local ok_kind, lspkind = pcall(require, 'lspkind')
-if not ok_kind then return end
-
-local ok_lua, luasnip = pcall(require, 'luasnip')
-if not ok_lua then return end
-
-local ok, cmp = pcall(require, 'cmp')
-if not ok then return end
+local cmp = require('cmp')
+local luasnip = require('luasnip')
+local lspkind = require('lspkind')
 
 cmp.setup({
   mapping = {
@@ -30,8 +25,12 @@ cmp.setup({
     ['<tab>'] = cmp.config.disable
   },
   sources = {
-    {name = 'gh_issues'}, {name = 'nvim_lua'}, {name = 'nvim_lsp'},
-    {name = 'path'}, {name = 'luasnip'}, {name = 'buffer', keyword_length = 5},
+    {name = 'gh_issues'},
+    {name = 'nvim_lua'},
+    {name = 'nvim_lsp'},
+    {name = 'path'},
+    {name = 'luasnip'},
+    {name = 'buffer', keyword_length = 5},
     {name = 'cmp_tabnine', keyword_length = 4, max_item_count = 20}
   },
   snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},

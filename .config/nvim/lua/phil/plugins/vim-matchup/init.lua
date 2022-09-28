@@ -1,1 +1,1 @@
-require('phil.plugins.vim-matchup.settings')
+REQ_CONFIGS('vim-matchup', {'settings'})

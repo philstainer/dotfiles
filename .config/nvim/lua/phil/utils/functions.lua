@@ -13,14 +13,18 @@ end
 
 function M.is_linux() return vim.loop.os_uname().sysname == 'Linux' end
 
-function M.has_value (tab, val)
-    for index, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
+function M.has_value(tab, val)
+  for index, value in ipairs(tab) do if value == val then return true end end
 
-    return false
+  return false
+end
+
+function M.split_string(s, delimiter)
+  local result = {};
+  for match in (s .. delimiter):gmatch('(.-)' .. delimiter) do
+    table.insert(result, match);
+  end
+  return result;
 end
 
 return M;

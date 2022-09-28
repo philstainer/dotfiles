@@ -4,8 +4,12 @@ local ensure_packer = function()
                            '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
     fn.system({
-      'git', 'clone', '--depth', '1',
-      'https://github.com/wbthomason/packer.nvim', install_path
+      'git',
+      'clone',
+      '--depth',
+      '1',
+      'https://github.com/wbthomason/packer.nvim',
+      install_path
     })
     vim.cmd [[packadd packer.nvim]]
     return true
@@ -21,32 +25,25 @@ if presentImpatient then impatient.enable_profile() end
 
 return require('packer').startup {
   function(use)
-    -- Lua caching
     use 'lewis6991/impatient.nvim'
-
     use 'wbthomason/packer.nvim'
 
     use 'nvim-lua/plenary.nvim'
 
-    -- Home screen
-    use {
-      'goolord/alpha-nvim',
-      config = function() require('phil.plugins.alpha') end
-    }
-    use 'kyazdani42/nvim-tree.lua' -- File explorer
-    use 'j-hui/fidget.nvim' -- Lsp detail status
+    use {'goolord/alpha-nvim', config = GET_CONFIG('alpha')} -- Home Screen
+    use {'kyazdani42/nvim-tree.lua', config = GET_CONFIG('nvim-tree')} -- File tree
+    use {'j-hui/fidget.nvim', config = GET_CONFIG('fidget')} -- Lsp detail status
 
     -- Git
     use {
       'TimUntersberger/neogit',
       requires = {'nvim-lua/plenary.nvim', 'sindrets/diffview.nvim'},
-      config = function() require('phil.plugins.neogit') end
+      config = GET_CONFIG('neogit')
     }
 
-    use 'ruifm/gitlinker.nvim' -- Git browser
-    use 'rhysd/committia.vim' -- Git commit
+    use {'ruifm/gitlinker.nvim', config = GET_CONFIG('gitlinker')} -- Git browser
     use 'rhysd/git-messenger.vim' -- Git commit viewer
-    use 'lewis6991/gitsigns.nvim' -- Git signs e.g new, modified
+    use {'lewis6991/gitsigns.nvim', config = GET_CONFIG('gitsigns')} -- Git signs e.g new, modified
 
     -- Github integration
     if vim.fn.executable 'gh' == 1 then
@@ -55,7 +52,11 @@ return require('packer').startup {
     end
 
     -- Telescope
-    use 'nvim-telescope/telescope.nvim'
+    use {
+      'nvim-telescope/telescope.nvim',
+      config = GET_CONFIG('telescope'),
+      requires = {'nvim-lua/plenary.nvim'}
+    }
     use 'nvim-lua/popup.nvim'
     use {'nvim-telescope/telescope-fzy-native.nvim', run = 'make'}
     use 'nvim-telescope/telescope-ui-select.nvim'
@@ -68,21 +69,6 @@ return require('packer').startup {
     -- nvim-mapper replacement?? folke/which-key.nvim
     use 'lazytanuki/nvim-mapper' -- Key mapper for easy viewing
     use 'ahmedkhalf/project.nvim' -- Telescope projects
-
-    -- Complete
-    use {
-      'hrsh7th/nvim-cmp',
-      event = 'InsertEnter',
-      requires = {
-        {'hrsh7th/cmp-buffer', after = 'nvim-cmp'},
-        {'hrsh7th/cmp-path', after = 'nvim-cmp'},
-        {'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}, {'hrsh7th/cmp-nvim-lsp'},
-        {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'},
-        {'tamago324/cmp-zsh', after = 'nvim-cmp'},
-        {'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-cmp'} -- AI code helper
-
-      }
-    }
 
     -- LSP Autocomplete & Linters
     use 'neovim/nvim-lspconfig'
@@ -97,10 +83,31 @@ return require('packer').startup {
 
     use 'princejoogie/tailwind-highlight.nvim' -- Tailwind highlighter
 
-    use 'jose-elias-alvarez/null-ls.nvim' -- Formatting
+    use {'jose-elias-alvarez/null-ls.nvim', config = GET_CONFIG('null-ls')} -- Formatting
 
-    -- Snippets
-    use {'L3MON4D3/LuaSnip', requires = {'rafamadriz/friendly-snippets'}}
+    -- CMP
+    use {
+      'hrsh7th/nvim-cmp',
+      event = 'InsertEnter',
+      wants = {'LuaSnip'},
+      config = GET_CONFIG('nvim-cmp'),
+      requires = {
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-nvim-lua',
+        'hrsh7th/cmp-nvim-lsp',
+        'saadparwaiz1/cmp_luasnip',
+        'tamago324/cmp-zsh',
+        {'tzachar/cmp-tabnine', run = './install.sh'}, -- AI code helper
+        {
+          'L3MON4D3/LuaSnip',
+          wants = 'friendly-snippets',
+          config = GET_CONFIG('luasnip')
+        },
+        'rafamadriz/friendly-snippets',
+        'onsails/lspkind-nvim'
+      }
+    }
 
     -- Treesitter
     use {
@@ -112,7 +119,7 @@ return require('packer').startup {
     use 'nvim-treesitter/nvim-treesitter-textobjects'
     use {
       'romgrk/nvim-treesitter-context',
-      config = function() require('phil.plugins.nvim-treesitter-context') end
+      config = GET_CONFIG('nvim-treesitter-context')
     }
 
     -- Extra
@@ -134,10 +141,7 @@ return require('packer').startup {
     use 'tpope/vim-repeat' -- Repeat actions
     use 'bkad/CamelCaseMotion' -- Allows to move by camelCase with w e
     use 'lukas-reineke/indent-blankline.nvim' -- Show indent lines
-    use {
-      'andymass/vim-matchup',
-      config = function() require('phil.plugins.vim-matchup') end
-    } -- Enchances %
+    use {'andymass/vim-matchup', config = GET_CONFIG('vim-matchup')} -- Enchances %
     use 'folke/todo-comments.nvim' -- Todo Comments
 
     use 'MunifTanjim/nui.nvim'
@@ -146,9 +150,11 @@ return require('packer').startup {
     -- use 'gruvbox-community/gruvbox'
     -- use 'tjdevries/gruvbuddy.nvim'
     -- use 'navarasu/onedark.nvim'
-    use 'marko-cerovac/material.nvim'
+    use {
+      'tjdevries/colorbuddy.nvim',
+      requires = {'marko-cerovac/material.nvim'}
+    }
 
-    use 'tjdevries/colorbuddy.nvim' -- Themeing
     use 'norcalli/nvim-colorizer.lua' -- preview hex colors
 
     use 'kyazdani42/nvim-web-devicons' -- Icons

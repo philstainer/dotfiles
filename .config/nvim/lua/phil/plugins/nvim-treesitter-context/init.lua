@@ -1,2 +1,1 @@
-require('phil.plugins.nvim-treesitter-context.settings')
-require('phil.plugins.nvim-treesitter-context.remaps')
+REQ_CONFIGS('nvim-treesitter-context', {'settings', 'remaps'})

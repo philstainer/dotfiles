@@ -1,5 +1,4 @@
-local null_ls_status_ok, null_ls = pcall(require, 'null-ls')
-if not null_ls_status_ok then return end
+local null_ls = require 'null-ls'
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -10,7 +9,11 @@ local nvim_version = vim.version()
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
 local langs = {
-  'astro', 'javascript', 'javascriptreact', 'typescript', 'typescriptreact',
+  'astro',
+  'javascript',
+  'javascriptreact',
+  'typescript',
+  'typescriptreact',
   'json'
 }
 
@@ -37,12 +40,19 @@ null_ls.setup {
     formatting.eslint_d.with({filetypes = langs}),
     formatting.prettierd.with({filetypes = langs}),
     formatting.rustywind.with({filetypes = langs}),
-    diagnostics.eslint_d.with({filetypes = langs}), code_actions.eslint,
+    diagnostics.eslint_d.with({filetypes = langs}),
+    code_actions.eslint,
     diagnostics.cspell.with({disabled_filetypes = {'lua', 'NvimTree'}}),
     formatting.lua_format.with({
       extra_args = {
-        '--tab-width', 2, '--indent-width', 2, '--double-quote-to-single-quote'
+        '--tab-width',
+        2,
+        '--indent-width',
+        2,
+        '--double-quote-to-single-quote',
+        '--chop-down-table'
       }
-    }), formatting.beautysh
+    }),
+    formatting.beautysh
   }
 }
