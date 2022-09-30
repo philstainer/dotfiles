@@ -1,1 +1,2 @@
-REQ_CONFIGS('telescope', {'mapper', 'project', 'settings', 'remaps'})
+REQ_CONFIGS('telescope',
+            {'mapper', 'project', 'settings', 'remaps', 'git-worktree'})

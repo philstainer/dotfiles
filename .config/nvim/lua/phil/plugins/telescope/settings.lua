@@ -40,9 +40,24 @@ telescope.setup {
     file_sorter = require('telescope.sorters').get_fzy_sorter,
     sorting_strategy = 'ascending',
     file_ignore_patterns = {
-      '.backup', '.swap', '.langservers', '.session', '.undo', '*.git', '.git',
-      'node_modules', 'vendor', '.cache', '.vscode-server', '.Desktop',
-      '.Documents', 'classes', 'yarn.lock', 'package-lock.json', 'dist', 'build'
+      '.backup',
+      '.swap',
+      '.langservers',
+      '.session',
+      '.undo',
+      '*.git',
+      '.git',
+      'node_modules',
+      'vendor',
+      '.cache',
+      '.vscode-server',
+      '.Desktop',
+      '.Documents',
+      'classes',
+      'yarn.lock',
+      'package-lock.json',
+      'dist',
+      'build'
     },
     prompt_prefix = '> ',
     selection_caret = '> ',
@@ -122,8 +137,6 @@ if vim.fn.executable 'gh' == 1 then telescope.load_extension('gh') end
 telescope.load_extension('ui-select')
 
 telescope.load_extension('hop')
-
-require('git-worktree').setup({base_directory = '../'})
 
 telescope.load_extension('git_worktree')
 

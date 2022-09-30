@@ -34,11 +34,11 @@ nnoremap('<leader>vh', function() require('telescope.builtin').help_tags() end) 
 -- nnoremap('<leader>gf', function() require'telescope.builtin'.git_files() end) -- Git files
 nnoremap('<leader>gb', function() require'telescope.builtin'.git_branches() end) -- Git branches
 
-nnoremap('<leader>gc', function() require'telescope.builtin'.git_commits() end) -- Git commits
-nnoremap('<leader>gfc', function() require'telescope.builtin'.git_bcommits() end) -- Git commits on file
+nnoremap('<leader>gl', function() require'telescope.builtin'.git_commits() end) -- Git commits
+nnoremap('<leader>gfl', function() require'telescope.builtin'.git_bcommits() end) -- Git commits on file
 
 nnoremap('<leader>gw', function() extensions.git_worktree.git_worktrees() end) -- Git work trees
-nnoremap('<leader>gm',
+nnoremap('<leader>gc',
          function() extensions.git_worktree.create_git_worktree() end) -- Git work trees
 
 -- vim.keymap.set('n', '-', function() extensions.file_browser.file_browser() end,

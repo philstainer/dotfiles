@@ -57,8 +57,13 @@ local options = {
   wildmenu = true,
   wildmode = {'longest', 'list', 'full'},
   wildignore = vim.opt.wildignore + {
-    '*.pyc', '*build/*', '**/coverage/*', '**/node_modules/*', '**/android/*',
-    '**/ios/*', '**/.git/*'
+    '*.pyc',
+    '*build/*',
+    '**/coverage/*',
+    '**/node_modules/*',
+    '**/android/*',
+    '**/ios/*',
+    '**/.git/*'
   },
   guicursor = '',
   nu = true,
