@@ -13,7 +13,8 @@ export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-# export ZSH_THEME="powerlevel10k/powerlevel10k"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
+# typeset -g POWERLEVEL9K_PROMPT_CHAR_BACKGROUND=
 
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="${yellow}";

@@ -4,8 +4,6 @@
 # Source exports if exists
 [[ ! -f ~/.exports ]] || source ~/.exports
 
-ZSH_THEME="robbyrussell"
-
 plugins=(git docker docker-compose pip)
 plugins+=(tmux tmuxinator yarn npm pnpm)
 plugins+=(z zsh-autosuggestions history)
