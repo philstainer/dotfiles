@@ -80,11 +80,15 @@ telescope.setup {
       hidden = true,
       no_ignore = true,
       find_command = {
-        'rg',
-        '--files',
+        'fd',
+        '--type',
+        'f',
+        '--strip-cwd-prefix',
         '--hidden',
-        '--glob',
-        '!{.git,node_modules,dist,build}'
+        '--no-ignore',
+        '--ignore-case',
+        '--exclude',
+        '{.git,node_modules,dist,build,.DS_Store}'
       }
     },
     git_files = {previewer = false, theme = 'dropdown'},
