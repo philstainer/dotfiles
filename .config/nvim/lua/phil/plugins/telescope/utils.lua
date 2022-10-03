@@ -1,7 +1,8 @@
 local M = {}
 
-M.project_files = function()
-  local opts = {} -- define here if you want to define something
+M.project_files = function(opts)
+  opts = opts or {}
+
   -- local ok = pcall(require'telescope.builtin'.git_files, opts)
   -- if not ok then require'telescope.builtin'.find_files(opts) end
   require'telescope.builtin'.find_files(opts)
