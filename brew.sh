@@ -47,6 +47,7 @@ brew install --cask gpg-suite
 brew install --cask chromedriver
 brew install wget
 brew install coreutils
+brew install gum
 
 # Fonts
 echo_warn "Installing fonts..."

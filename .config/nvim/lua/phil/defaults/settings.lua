@@ -19,10 +19,10 @@ local options = {
   backup = false, -- creates a backup file
   clipboard = 'unnamedplus', -- allows neovim to access the system clipboard
   cmdheight = 1, -- more space in the neovim command line for displaying messages
-  completeopt = {'menuone', 'noselect'}, -- mostly just for cmp
+  completeopt = { 'menuone', 'noselect' }, -- mostly just for cmp
   conceallevel = 0, -- so that `` is visible in markdown files
   fileencoding = 'utf-8', -- the encoding written to a file
-  hlsearch = false, -- highlight all matches on previous search pattern
+  -- hlsearch = false, -- highlight all matches on previous search pattern
   incsearch = true,
   ignorecase = false, -- ignore case in search patterns
   -- mouse = "a", -- allow the mouse to be used in neovim
@@ -55,7 +55,7 @@ local options = {
   colorcolumn = '0', -- '80'
   path = vim.opt.path + '**',
   wildmenu = true,
-  wildmode = {'longest', 'list', 'full'},
+  wildmode = { 'longest', 'list', 'full' },
   wildignore = vim.opt.wildignore + {
     '*.pyc',
     '*build/*',

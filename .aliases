@@ -12,6 +12,8 @@ alias sl=exa
 
 alias grep='rg'
 alias find='fd'
+# alias hs="gum filter < $HISTFILE --height 20 | sed 's/.*;//g' | pbcopy"
+alias hs="tac $HISTFILE | gum filter | sed 's/.*;//g' | pbcopy"
 
 alias tt='python3 ~/dotfiles/tmux-session.py'
 

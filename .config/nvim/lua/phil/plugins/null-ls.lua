@@ -22,13 +22,13 @@ null_ls.setup {
   on_attach = function(client, bufnr)
     if client.supports_method('textDocument/formatting') then
 
-      vim.api.nvim_clear_autocmds({group = augroup, buffer = bufnr})
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
       vim.api.nvim_create_autocmd('BufWritePre', {
         group = augroup,
         buffer = bufnr,
         callback = function()
           if (nvim_version.minor >= 8) then
-            vim.lsp.buf.format({bufnr = bufnr})
+            vim.lsp.buf.format({ bufnr = bufnr })
           else
             vim.lsp.buf.formatting_sync()
           end
@@ -37,12 +37,12 @@ null_ls.setup {
     end
   end,
   sources = {
-    formatting.eslint_d.with({filetypes = langs}),
-    formatting.prettierd.with({filetypes = langs}),
-    formatting.rustywind.with({filetypes = langs}),
-    diagnostics.eslint_d.with({filetypes = langs}),
+    formatting.eslint_d.with({ filetypes = langs }),
+    formatting.prettierd.with({ filetypes = langs }),
+    formatting.rustywind.with({ filetypes = langs }),
+    diagnostics.eslint_d.with({ filetypes = langs }),
     code_actions.eslint,
-    diagnostics.cspell.with({disabled_filetypes = {'lua', 'NvimTree'}}),
+    diagnostics.cspell.with({ disabled_filetypes = { 'lua', 'NvimTree' } }),
     formatting.lua_format.with({
       extra_args = {
         '--tab-width',
