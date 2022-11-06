@@ -43,7 +43,6 @@
 [push]
 	default = current
 	followTags = true
-	default = current
 	autoSetupRemote = true
 
 [init]
@@ -55,3 +54,8 @@
 [alias]
 	push-mr = push -o merge_request.create
   clone-worktree = "!sh $HOME/git-clone-bare-for-worktrees.sh"
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
