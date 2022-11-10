@@ -12,11 +12,11 @@ yabai -m rule --add app=Discord space=personal
 yabai -m rule --add app=WhatsApp space=personal
 yabai -m rule --add app=Messages space=personal
 
-yabai -m rule --add app=Slack space=chat
+yabai -m rule --add app=Slack space=chat display=2 # space=chat
 yabai -m rule --add app='Microsoft Teams' space=chat
 
-yabai -m rule --add app=Chrome space=browser
-yabai -m rule --add app=Brave space=browser
+# yabai -m rule --add app=Chrome space=browser
+# yabai -m rule --add app=Brave space=browser
 
 yabai -m rule --add app=iTerm2 space=code
 yabai -m rule --add app=Kitty space=code
