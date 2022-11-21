@@ -42,6 +42,12 @@ dclear () {
     docker volume prune -f
 }
 
+breset () {
+    git fetch origin
+    git reset --hard origin/$(git_main_branch)
+    git clean -xdf
+}
+
 # Git
 
 alias g='git'

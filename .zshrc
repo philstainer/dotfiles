@@ -19,7 +19,7 @@ ZSH_TMUX_FIXTERM=true
 # 10ms for key sequences
 KEYTIMEOUT=1
 
-sudo /etc/init.d/dbus start &> /dev/null
+# sudo /etc/init.d/dbus start &> /dev/null
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
