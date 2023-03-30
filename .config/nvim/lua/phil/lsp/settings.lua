@@ -23,7 +23,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities =
     vim.tbl_deep_extend('keep', capabilities, lsp_status.capabilities)
 capabilities.textDocument.codeLens = {dynamicRegistration = false}
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 M.default_lsp_config = {
   on_attach = handlers.on_attach,
@@ -38,7 +38,7 @@ M.servers = {
   tsserver = require('phil.lsp.servers.tsserver')(),
   html = {},
   cssls = {},
-  sumneko_lua = require('phil.lsp.servers.sumneko_lua')(),
+  -- sumneko_lua = require('phil.lsp.servers.sumneko_lua')(),
   dockerls = {},
   gopls = require('phil.lsp.servers.gopls')(),
   tailwindcss = require('phil.lsp.servers.tailwindcss')(),
