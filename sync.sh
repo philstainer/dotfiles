@@ -20,6 +20,7 @@ ARRAY=(
     .local/bin    # Helpers config
     .gitconfig    # Git config
     .zshrc        # Zsh config
+    .hammerspoon/init.lua   # Hammersponn config
     .p10k.zsh
     .aliases
     .exports
