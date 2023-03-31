@@ -42,12 +42,6 @@ dclear () {
     docker volume prune -f
 }
 
-breset () {
-    git fetch origin
-    git reset --hard origin/$(git_main_branch)
-    git clean -xdf
-}
-
 # Git
 
 alias g='git'
@@ -63,7 +57,10 @@ alias gbr='git branch -m'
 alias gco='git checkout'
 
 alias gc='git commit -v'
+alias 'gc!'='git commit -v --amend'
 alias gca='git commit -v -a'
+alias 'gca!'='git commit -v -a --amend'
+alias gcam='git commit -a -m'
 
 alias gc='git clone'
 alias gcw='git clone-worktree'
@@ -88,3 +85,26 @@ alias gf='git fetch'
 alias gs='git switch'
 
 alias gst='git status || exa'
+
+breset () {
+    git fetch origin
+    git reset --hard origin/$(git_main_branch)
+    git clean -xdf
+}
+
+function get_filename {
+    basename=$(basename "$1")
+    basename=${basename%.*}
+
+    echo $basename
+}
+
+function create_gif {
+    basename=$(get_filename $1)
+
+    ffmpeg -i $1 -vf palettegen $1.png
+    ffmpeg -i $1 -i $1.png -lavfi paletteuse $basename.gif
+    rm $1.png
+
+    # gifsicle -O3 $basename.gif -o $basename.gif
+}
