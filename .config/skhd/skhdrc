@@ -52,8 +52,8 @@ alt + ctrl + shift - tab : yabai -m space --focus prev || yabai -m space --focus
 alt - d : yabai -m space --focus recent
 
 # move focused window to previous workspace
-alt + shift - b : yabai -m window --space recent; \
-                  yabai -m space --focus recent
+# alt + shift - b : yabai -m window --space recent; \
+#                   yabai -m space --focus recent
 
 # rotate tree
 alt - r : yabai -m space --rotate 90
@@ -68,13 +68,13 @@ alt - x : yabai -m space --mirror x-axis
 alt + shift - 0 : yabai -m space --balance
 
 # change layout of desktop
-#alt - e : yabai -m space --layout bsp
-#alt - l : yabai -m space --layout float
-# alt - s : yabai -m space --layout stack
+alt - e : yabai -m space --layout bsp
+alt - l : yabai -m space --layout float
+alt - s : yabai -m space --layout stack
 
 # toggle sticky
-alt - s : yabai -m window --toggle sticky;\
-          yabai -m window --toggle topmost
+# alt - s : yabai -m window --toggle sticky;\
+#           yabai -m window --toggle topmost
 
 # toggle sticky
 alt + ctrl - p : yabai -m window --toggle sticky;\
@@ -95,7 +95,7 @@ alt + ctrl - c : yabai -m window --toggle float;\
 # alt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
 
 # toggle window split type
-alt - e : yabai -m window --toggle split
+# alt - e : yabai -m window --toggle split
 
 # close focused window
 alt - w : yabai -m window --close
