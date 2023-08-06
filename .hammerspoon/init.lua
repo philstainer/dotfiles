@@ -18,10 +18,6 @@ hs.hotkey.bind(hyper, "M", function()
   hs.application.launchOrFocus("Messages")
 end)
 
-hs.hotkey.bind(hyper, "F", function()
-  hs.application.launchOrFocus("Finder")
-end)
-
 -- Window management
 hs.window.animationDuration = 0
 
