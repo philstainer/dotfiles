@@ -3,8 +3,8 @@
 # Source exports if exists
 [[ ! -f ~/.exports ]] || source ~/.exports
 
-plugins=(git docker docker-compose pip)
-plugins+=(tmux tmuxinator yarn npm pnpm)
+plugins=(git gh pip)
+plugins+=(npm pnpm)
 plugins+=(z zsh-autosuggestions history)
 
 # ZSH_TMUX_AUTOSTART=true
@@ -34,8 +34,11 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # pnpm
-export PNPM_HOME="/Users/philstainer/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+export PNPM_HOME="/Users/phil/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 # pnpm end
 
 # Fig post block. Keep at the bottom of this file.

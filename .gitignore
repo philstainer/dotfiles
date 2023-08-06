@@ -17,3 +17,4 @@ Thumbs.db
 tmux-client*
 .extra
 packer_compiled.lua
+.local/bin/console-ninja

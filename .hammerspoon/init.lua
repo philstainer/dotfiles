@@ -34,12 +34,6 @@ hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "8", function()
   hs.application.launchOrFocus("Finder")
 end)
 
--- Click menu item
--- hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "E", function()
---   hs.application.get("Hammerspoon"):selectMenuItem("Console...")
---   hs.application.launchOrFocus("Hammerspoon")
--- end)
-
 -- Defeating paste blocking
 hs.hotkey.bind({ "cmd", "alt" }, "V", function()
   hs.eventtap.keyStrokes(hs.pasteboard.getContents())

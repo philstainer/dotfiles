@@ -39,13 +39,6 @@ export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
 
-# pnpm
-export PNPM_HOME="/Users/phil/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-
-# Nodenv
-eval "$(nodenv init - --no-rehash)"
-
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
