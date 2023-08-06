@@ -57,13 +57,6 @@ brew install --cask font-jetbrains-mono-nerd-font
 # Applications
 echo_warn "Installing applications..."
 
-# Node
-brew tap nodenv/nodenv
-brew install nodenv nodenv-nvmrc nodenv-package-rehash nodenv-package-json-engine nodenv-aliases
-
-brew install pnpm
-npm install -g eslint_d @fsouza/prettierd
-
 # Tools
 brew install fzf
 brew install trash
@@ -80,9 +73,7 @@ brew install --cask shottr
 
 # Apps
 brew install --cask 1password
-brew install --cask cheatsheet
 brew install --cask raycast
-# brew install --cask alfred
 brew install --cask stats
 brew install --cask iina
 brew install --cask imageoptim
@@ -92,37 +83,19 @@ brew install --cask google-drive
 brew install --cask notion
 
 # Dev utilities
-brew install docker --cask
-brew install docker-compose
-
-mkdir -p ~/.docker/cli-plugins
-ln -sfn $(brew --prefix)/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
-
 brew install git
 brew install gh # Github CLI
 brew install --cask github
 brew install --cask visual-studio-code
 brew install --cask sourcetree
-brew install --cask iterm2
 
 # Browsers
-brew install --cask firefox
 brew install --cask google-chrome
-brew install --cask brave-browser
 
 # Communication
 brew install --cask discord
-brew install --cask microsoft-teams
 brew install --cask microsoft-outlook
-brew install --cask protonmail-bridge
-brew install --cask slack
-brew install --cask zoom
 brew install --cask whatsapp
-
-# tfswitch - https://warrensbox.github.io/terraform-switcher/
-brew install warrensbox/tap/tfswitch
-
-brew install --cask rocket
 
 # Terminal
 echo_warn "Installing Terminal..."
@@ -132,18 +105,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone --depth=1 https://github.com/baliestri/pnpm.plugin.zsh ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/pnpm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-brew install tmux
-brew install tmuxinator
 brew install fig
-
-# NVim
-echo_warn "Installing nvim..."
-brew install neovim
-# brew install efm-langserver
-luarocks install --server=https://luarocks.org/dev luaformatter
-
-nvim +silent +PackerSync +qall
-# CC=/opt/homebrew/Cellar/gcc/11.2.0_3/bin/gcc-11 nvim +silent +PackerSync +qall
 
 # Install Mac App Store
 echo_warn "Installing Mac Apps..."
@@ -151,9 +113,6 @@ brew install mas
 
 mas install 497799835  # Xcode
 mas install 1607635845 # Velja
-mas install 595191960  # CopyClip
-mas install 1452453066 # Hidden bar
-mas install 985367838  # Outlook
 
 # Clean up
 brew cleanup
@@ -163,15 +122,8 @@ refresh_path
 pyenv install 2.7:latest
 pyenv install 3:latest
 
-nodenv install --list | grep -Eo '^[0-9].*' | tail -1 | xargs nodenv install
-
 refresh_path
 
-
-# Yabai
-brew install koekeishiya/formulae/yabai
-brew install jq
-brew install koekeishiya/formulae/skhdu
 echo
 echo_ok "Done."
 echo
