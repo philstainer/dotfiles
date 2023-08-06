@@ -1,40 +1,41 @@
--- hs.messages.iMessage("+447915824131", "Hey! I'm at Baristartisan's, come join me!")
--- hs.messages.SMS("+447915824131", "Hey, you don't have an iPhone, but you should still come for a coffee")
+-- Specify your combination (your hyperkey)
+local hyper = { "cmd", "alt", "ctrl", "shift" }
 
 -- Applications
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "1", function()
+hs.hotkey.bind(hyper, "V", function()
   hs.application.launchOrFocus("Visual Studio Code")
 end)
 
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "2", function()
+hs.hotkey.bind(hyper, "A", function()
   hs.application.launchOrFocus("Arc")
 end)
 
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "3", function()
-  hs.application.launchOrFocus("OBS")
-end)
-
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "4", function()
+hs.hotkey.bind(hyper, "W", function()
   hs.application.launchOrFocus("WhatsApp")
 end)
 
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "5", function()
+hs.hotkey.bind(hyper, "M", function()
   hs.application.launchOrFocus("Messages")
 end)
 
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "6", function()
-  hs.application.launchOrFocus("Microsoft Outlook")
-end)
-
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "7", function()
-  hs.application.launchOrFocus("Notion")
-end)
-
-hs.hotkey.bind({ "cmd", "alt", "ctrl", 'shift' }, "8", function()
+hs.hotkey.bind(hyper, "F", function()
   hs.application.launchOrFocus("Finder")
 end)
 
--- Defeating paste blocking
+-- Window management
+hs.window.animationDuration = 0
+
+hs.hotkey.bind(hyper, "1", function()
+  local mainScreen = "LG HDR 4K"
+  local windowLayout = {
+      {"Arc",  nil,          mainScreen, hs.layout.left50,    nil, nil},
+      {"Code",    nil,          mainScreen, hs.layout.right50,   nil, nil},
+  }
+  hs.layout.apply(windowLayout)
+end)
+
+
+ -- Defeating paste blocking
 hs.hotkey.bind({ "cmd", "alt" }, "V", function()
   hs.eventtap.keyStrokes(hs.pasteboard.getContents())
 end)
@@ -42,7 +43,7 @@ end)
 -- Reload HS config
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/init.lua", hs.reload):start()
 
-hs.hotkey.bind({ "cmd", "alt", "ctrl" }, "R", function()
+hs.hotkey.bind(hyper, "0", function()
   hs.reload()
 end)
 
