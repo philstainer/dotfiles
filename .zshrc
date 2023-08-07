@@ -41,5 +41,7 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+eval "$(op completion zsh)"; compdef _op op
+
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
