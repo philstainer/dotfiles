@@ -34,7 +34,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # pnpm
-export PNPM_HOME="/Users/phil/Library/pnpm"
+export PNPM_HOME="/Users/$USERNAME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
