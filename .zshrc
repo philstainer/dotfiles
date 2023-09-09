@@ -41,7 +41,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-eval "$(op completion zsh)"; compdef _op op
+if command -v op &> /dev/null; then
+  eval "$(op completion zsh)"; compdef _op op
+fi
+
+if [[ -f "$HOME/.config/ni/nirc" ]]; then
+ export NI_CONFIG_FILE="$HOME/.config/ni/nirc"
+fi
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

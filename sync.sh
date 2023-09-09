@@ -16,7 +16,7 @@ ARRAY=(
     .config/kitty   # Kitty config
     .config/nvim    # Kitty config
     .config/yabai   # Yabai config for window managagment
-    .config/skhd    # Skhdrc config for keyboard navigation
+    .config/ni    # Ni config
     .local/bin    # Helpers config
     .gitconfig    # Git config
     .zshrc        # Zsh config
