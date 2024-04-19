@@ -5,7 +5,8 @@
 
 plugins=(git gh pip)
 plugins+=(npm pnpm)
-plugins+=(z zsh-autosuggestions history)
+plugins+=(zsh-autosuggestions history)
+# plugins+=(z)
 
 # ZSH_TMUX_AUTOSTART=true
 # ZSH_TMUX_AUTOQUIT=true
@@ -51,3 +52,9 @@ fi
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+
+PATH=~/.console-ninja/.bin:$PATH
+# bun completions
+[ -s "/Users/philstainer/.bun/_bun" ] && source "/Users/philstainer/.bun/_bun"
+
+eval "$(zoxide init zsh)"

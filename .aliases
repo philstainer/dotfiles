@@ -70,7 +70,7 @@ alias glr='git pull --rebase'
 alias glrom='git pull --rebase origin $(git_main_branch)'
 
 alias gp='git push'
-alias gpf='git push --force'
+alias gpf='git push --force-with-lease'
 alias gpsuo='git push -u origin $(git_current_branch)'
 
 alias gr='git rebase'
