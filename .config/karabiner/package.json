@@ -1,0 +1,13 @@
+{
+  "name": "karabiner",
+  "main": "rules.ts",
+  "scripts": {
+    "build": "tsx rules.ts",
+    "watch": "tsx watch ./rules.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.31",
+    "prettier": "^2.7.1",
+    "tsx": "^4.7.2"
+  }
+}

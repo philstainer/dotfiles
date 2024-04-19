@@ -17,6 +17,7 @@ ARRAY=(
     .config/nvim    # Kitty config
     .config/yabai   # Yabai config for window managagment
     .config/ni    # Ni config
+    .config/karabiner    # karabiner config
     .local/bin    # Helpers config
     .gitconfig    # Git config
     .zshrc        # Zsh config
